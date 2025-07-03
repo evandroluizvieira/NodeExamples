@@ -1,0 +1,32 @@
+NodeExamples/
+├── public/
+│	├── scripts/
+│	│	│── footer.js
+│	│	│── header.js
+│	│	└── main.js
+│	│
+│	└── style/
+│		│── footer.css
+│		│── header.css
+│		└── main.css
+│
+├── source/
+│	├── routes/
+│	│	└── home.js
+│	│
+│	└── app.js
+│
+├── views/
+│	├── layouts/
+│	│	└── main.hbs
+│	│
+│	├── partials/
+│	│	├── header.hbs
+│	│	└── footer.hbs
+│	│
+│	└── index.hbs
+│
+├── package.json
+├── README.md
+├── server.js
+└── Structure.txt
