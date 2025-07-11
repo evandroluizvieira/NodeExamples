@@ -1,32 +1,34 @@
-NodeExamples/
-├── public/
-│	├── scripts/
-│	│	│── footer.js
-│	│	│── header.js
-│	│	└── main.js
-│	│
-│	└── style/
-│		│── footer.css
-│		│── header.css
-│		└── main.css
+NodeExamples/				# Project root folder
+├── public/					# Frontend assets (static files)
+│   ├── scripts/			# JavaScript files
+│   │   ├── footer.js
+│   │   ├── header.js
+│   │   └── main.js
+│   │
+│   └── style/				# CSS stylesheets
+│       ├── footer.css
+│       ├── header.css
+│       └── main.css
 │
-├── source/
-│	├── routes/
-│	│	└── home.js
-│	│
-│	└── app.js
+├── source/					# Backend logic
+│   ├── routes/				# Route definitions
+│   │   └── home.js
+│   │
+│   └── app.js
 │
-├── views/
-│	├── layouts/
+├── views/					# Handlebars templates
+│	├── layouts/			# Base layout templates
 │	│	└── main.hbs
 │	│
-│	├── partials/
-│	│	├── header.hbs
-│	│	└── footer.hbs
+│	├── pages/				# Main pages
+│	│	└── index.hbs
 │	│
-│	└── index.hbs
+│	└── partials/			# Reusable partial templates
+│		├── header.hbs
+│		└── footer.hbs
 │
-├── package.json
-├── README.md
-├── server.js
-└── Structure.txt
+├── LICENSE					# Project license (MIT)
+├── package.json			# Project dependencies and scripts
+├── README.md				# This README file
+├── server.js				# Server entry point
+└── Structure.txt			# Project structure description

@@ -6,38 +6,40 @@ Example Node.js server project using Fastify and Handlebars (hbs) structure.
 
 ## Project Structure
 ```bash
-NodeExamples/             # Project root folder
-├── public/               # Frontend assets (static files)
-│   ├── scripts/          # JavaScript files
+NodeExamples/				# Project root folder
+├── public/					# Frontend assets (static files)
+│   ├── scripts/			# JavaScript files
 │   │   ├── footer.js
 │   │   ├── header.js
 │   │   └── main.js
 │   │
-│   └── style/            # CSS stylesheets
+│   └── style/				# CSS stylesheets
 │       ├── footer.css
 │       ├── header.css
 │       └── main.css
 │
-├── source/               # Backend source code
-│   ├── routes/           # Route definitions
+├── source/					# Backend logic
+│   ├── routes/				# Route definitions
 │   │   └── home.js
 │   │
 │   └── app.js
 │
-├── views/                # Handlebars templates
-│   ├── layouts/          # Main layout templates
-│   │   └── main.hbs
-│   │
-│   ├── partials/         # Reusable partial templates
-│   │   ├── header.hbs
-│   │   └── footer.hbs
-│   │
-│   └── index.hbs
+├── views/					# Handlebars templates
+│	├── layouts/			# Base layout templates
+│	│	└── main.hbs
+│	│
+│	├── pages/				# Main pages
+│	│	└── index.hbs
+│	│
+│	└── partials/			# Reusable partial templates
+│		├── header.hbs
+│		└── footer.hbs
 │
-├── package.json          # Project dependencies and scripts
-├── README.md             # This README file
-├── server.js             # Server entry point, starts Fastify server
-└── Structure.txt         # Project structure description
+├── LICENSE					# Project license (MIT)
+├── package.json			# Project dependencies and scripts
+├── README.md				# This README file
+├── server.js				# Server entry point
+└── Structure.txt			# Project structure description
 ```
 
 ---
