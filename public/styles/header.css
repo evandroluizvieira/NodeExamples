@@ -1,10 +1,27 @@
-header{
-	background: #222;
-	color: #fff;
-	padding: 10px;
+header {
+	background-image: linear-gradient(to bottom, #dddddd, #cccccc);
 }
 
-nav a{
-	color: #fff;
+header nav ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	gap: 8px;
+}
+
+header nav ul li a {
+	display: inline-block;
+	padding: 8px 16px;
+	background-color: rgb(0, 0, 100);
+	color: darkgray;
 	text-decoration: none;
+	font-weight: 600;
+	border-radius: 4px;
+	transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+	background-color: rgb(0, 0, 200);
+	color: gray;
 }

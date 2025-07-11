@@ -14,7 +14,7 @@ const app = Fastify();
 app.register(
 	staticPlugin,
 	{
-		root: path.join(__dirname, '..', 'public'),
+		root: path.resolve(__dirname, '..', 'public'),
 		prefix: '/public/',
 	}
 );

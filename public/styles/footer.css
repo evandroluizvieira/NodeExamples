@@ -1,5 +1,3 @@
-footer{
-	background: #eee;
-	text-align: center;
-	padding: 10px;
+footer {
+	background-image: linear-gradient(to bottom, #cccccc, #dddddd);
 }
