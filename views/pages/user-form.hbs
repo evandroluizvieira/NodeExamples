@@ -1,0 +1,95 @@
+<main>
+	<h1>{{title}}</h1>
+
+	<form action="{{formAction}}" method="POST">
+
+		{{#ifNotEqualsAny mode "register" "login" "reset-password"}}
+		<div>
+			<label for="id">ID:</label>
+			<input type="text" id="id" name="id" value="{{id}}" readonly />
+		</div>
+		{{/ifNotEqualsAny}}
+
+		{{#ifNotEquals mode "login"}}
+		<div>
+			<label for="name">Name:</label>
+			<input type="text" id="name" name="name" value="{{name}}" {{#ifNotEquals mode "profile"}}{{else}}readonly{{/ifNotEquals}} />
+			<span class="error-message">{{nameError}}</span>
+		</div>
+		{{/ifNotEquals}}
+
+		<div>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" value="{{email}}" {{#ifEquals mode "profile"}}readonly{{/ifEquals}} />
+			<span class="error-message">{{emailError}}</span>
+		</div>
+
+		{{#ifNotEquals mode "login"}}
+		<div>
+			<label for="birthDate">Birth Date:</label>
+			<input type="date" id="birthDate" name="birthDate" value="{{birthDate}}" {{#ifEquals mode "profile"}}readonly{{/ifEquals}} />
+			<span class="error-message">{{birthDateError}}</span>
+		</div>
+		{{/ifNotEquals}}
+
+		{{#ifEqualsAny mode "register" "login" "delete"}}
+		<div>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password" />
+			<span class="error-message">{{passwordError}}</span>
+		</div>
+		{{/ifEqualsAny}}
+		
+		{{#ifEqualsAny mode "register" "delete"}}
+		<div>
+			<label for="confirmPassword">Confirm Password:</label>
+			<input type="password" id="confirmPassword" name="confirmPassword" />
+			<span class="error-message">{{confirmPasswordError}}</span>
+		</div>
+		{{/ifEqualsAny}}
+
+		{{#ifEquals mode "reset-password"}}
+		<div>
+			<label for="newPassword">New Password:</label>
+			<input type="password" id="newPassword" name="newPassword" />
+			<span class="error-message">{{newPasswordError}}</span>
+		</div>
+
+		<div>
+			<label for="confirmNewPassword">Confirm New Password:</label>
+			<input type="password" id="confirmNewPassword" name="confirmNewPassword" />
+			<span class="error-message">{{confirmNewPasswordError}}</span>
+		</div>
+		{{/ifEquals}}
+
+		<div class="button-group">
+			{{#ifEquals mode "login"}}
+				<button type="submit">Login</button>
+				<button type="button" onclick="window.location.href='/user/reset-password'">Forgot Password?</button>
+			{{/ifEquals}}
+
+			{{#ifEquals mode "register"}}
+				<button type="submit">Register</button>
+			{{/ifEquals}}
+
+			{{#ifEquals mode "edit"}}
+				<button type="submit">Save Changes</button>
+				<button type="button" onclick="history.back();">Back</button>
+			{{/ifEquals}}
+
+			{{#ifEquals mode "profile"}}
+				<button type="button" onclick="window.location.href='/user/edit'">Edit</button>
+				<button type="button" onclick="window.location.href='/user/logout'">Logout</button>
+				<button type="submit" onclick="window.location.href='/user/delete'">Delete</button>
+			{{/ifEquals}}
+
+			{{#ifEquals mode "reset-password"}}
+				<button type="submit">Reset Password</button>
+			{{/ifEquals}}
+			
+			{{#ifNotEquals mode "edit"}}
+				<button type="button" onclick="window.location.href='/'">Cancel</button>
+			{{/ifNotEquals}}
+		</div>
+	</form>
+</main>
