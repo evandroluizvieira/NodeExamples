@@ -8,11 +8,23 @@ NodeExamples/
 │	└── style/
 │		│── footer.css
 │		│── header.css
-│		└── main.css
+│		│── main.css
+│		└── user-form.css
 │
 ├── source/
+│	├── database/
+│	│	├── Client.js
+│	│	├── ClientMongoDB.js
+│	│	└── index.js
+│	│
+│	├── models/
+│	│	├── User.js
+│	│	├── UserBase.js
+│	│	└── UserMongoDB.js
+│	│
 │	├── routes/
-│	│	└── home.js
+│	│	├── home.js
+│	│	└── user.js
 │	│
 │	└── app.js
 │
@@ -20,12 +32,16 @@ NodeExamples/
 │	├── layouts/
 │	│	└── main.hbs
 │	│
-│	├── partials/
-│	│	├── header.hbs
-│	│	└── footer.hbs
+│	├── pages/
+│	│	├── user-form.hbs
+│	│	└── index.hbs
 │	│
-│	└── index.hbs
+│	└── partials/
+│		├── header.hbs
+│		└── footer.hbs
 │
+├── .env
+├── LICENSE
 ├── package.json
 ├── README.md
 ├── server.js

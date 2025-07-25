@@ -17,7 +17,7 @@ export async function createDatabaseClient(dbType) {
 			}
 			
 			if (!dbName) {
-				throw new Error('DB_NAME environment variable is missing.');
+				throw new Error('DB_NAME environment variable is missing');
 			}
 
 			const client = new ClientMongoDB(uri);
@@ -25,7 +25,7 @@ export async function createDatabaseClient(dbType) {
 			return client;
 		}
 		default: {
-			throw new Error(`Unsupported DB_TYPE provided: ${dbType}`);
+			throw new Error(`Unsupported dbType provided: ${dbType}`);
 		}
 	}
 }

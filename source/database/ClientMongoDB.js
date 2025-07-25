@@ -32,7 +32,7 @@ export default class ClientMongoDB extends Client {
 
 		const dbName = options.dbName;
 		if (!dbName) {
-			throw new Error('Database name must be provided in options.dbName');
+			throw new Error('Property "dbName" is required in options object');
 		}
 
 		this.#db = this.#client.db(dbName);
@@ -61,5 +61,65 @@ export default class ClientMongoDB extends Client {
 
 		return await collectionRef[action](...args);
 	}
+	
+	async find(criteria = {}) {
+		if (!this.client.isConnected()) {
+			throw new Error('MongoDB client not connected');
+		}
 
+		if (typeof criteria !== 'object' || criteria === null) {
+			throw new TypeError('Parameter "criteria" must be a non-null object');
+		}
+
+		const { collection, ...filter } = criteria;
+
+		if (!collection) {
+			throw new Error('Property "collection" is required in criteria object');
+		}
+
+		if (typeof collection !== 'string') {
+			throw new TypeError('Property "collection" must be a string');
+		}
+
+		const cursor = await this.client.query(
+			{
+				collection,
+				action: 'find',
+				args: [filter]
+			}
+		);
+
+		return cursor.toArray();
+	}
+	
+	async findOne(criteria = {}) {
+		if (!this.isConnected()) {
+			throw new Error('MongoDB client not connected');
+		}
+
+		if (typeof criteria !== 'object' || criteria === null) {
+			throw new TypeError('Parameter "criteria" must be a non-null object');
+		}
+
+		const { collection, ...filter } = criteria;
+
+		if (!collection) {
+			throw new Error('Property "collection" is required in criteria object');
+		}
+
+		if (typeof collection !== 'string') {
+			throw new TypeError('Property "collection" must be a string');
+		}
+
+		return await this.query({
+			collection,
+			action: 'findOne',
+			args: [filter]
+		});
+	}
+	
+	async exists(criteria = {}) {
+		const result = await this.findOne(criteria);
+		return result !== null;
+	}
 }
